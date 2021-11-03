@@ -1,14 +1,13 @@
 import logo from './logo.svg';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from './components/Navigation/Navbar';
 
 function App() {
 
   return (
     <div className="App">
-      <h1>Hello from React to Django</h1>
+      <Navbar />
     </div>
   );
 }
