@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navigation/Navbar';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import CategoryDetail from './components/Category/CategoryDetail';
 
 function App() {
 
@@ -9,6 +10,9 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
+        <Switch>
+          <Route path="/category/:id" exact component={CategoryDetail}/>
+        </Switch>
       </Router>
     </div>
   );
