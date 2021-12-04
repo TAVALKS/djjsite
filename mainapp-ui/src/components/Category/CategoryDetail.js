@@ -1,18 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import axis from 'axis';
 import axios from 'axios';
 
 
-function CategoryDetail({match}){
+function CategoryDetail({ match }) {
 
     const [category, setCategory] = useState({})
     const id = match.params.id
 
-    useEffect(() =>{
+    useEffect(() => {
         axios({
             method: "GET",
-            url: `http://127.0.0.1:8080/api/category/${id}`
-        }).then((response) => {
+            url: `http://127.0.0.1:8080/api/category/${id}/`
+        }).then(response => {
             setCategory(response.data)
         })
     }, [id])
