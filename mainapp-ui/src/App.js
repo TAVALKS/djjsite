@@ -12,7 +12,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/category/:id" exact component={CategoryDetail}/>
+          <Route path="/category/:id/" exact component={CategoryDetail} />
         </Routes>
       </Router>
     </div>
