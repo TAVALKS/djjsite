@@ -21,7 +21,7 @@ function CategoryDetail({ match }) {
             Category with id {category.id}
             <p>Category <strong>{category.name}</strong></p>
         </div>
-    )
+    );
 }
 
 
