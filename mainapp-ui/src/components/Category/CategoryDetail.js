@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -26,7 +26,7 @@ function CategoryDetail({ match }) {
             <hr />
             <div className="row">
                 {posts.map(p => (
-                    <div className="col-md-4" key={p.title}>
+                    <div className="col-md-4" key={p.id}>
                     <h4>{p.title}</h4>
                     <p>{p.content}</p>
                     <p>{p.id}</p>

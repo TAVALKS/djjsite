@@ -10,7 +10,7 @@ function PostDetail({ match }) {
     useEffect(() =>{
         axios({
             method: "GET",
-            url: `http:127.0.0.1:8080/api/blogpost/${id}/`
+            url: `http://127.0.0.1:8080/api/blogpost/${id}/`
         }).then(response =>{
             setPost(response.data)
         })
