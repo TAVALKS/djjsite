@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
+import showDetailButton from '../UI/buttons/showDetailButton.js';
 import axios from 'axios';
 
 
@@ -30,7 +31,12 @@ function CategoryDetail({ match }) {
                     <h4>{p.title}</h4>
                     <p>{p.content}</p>
                     <p>{p.id}</p>
-                    <Link to={{ pathname: `/posts/${p.id}`, fromDashboard: false }}>Детали</Link>
+                    <p>{p.pub_date}</p>
+                    <Link to={{ pathname: `/posts/${p.id}`, fromDashboard: false }}>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <button class="btn btn-primary" type="button">Детали</button>
+                        </div>
+                    </Link>
             </div>
                 ))}
         </div>
