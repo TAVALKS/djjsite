@@ -38,7 +38,7 @@ class BlogPost(models.Model):
     title = models.CharField(max_length=255, verbose_name='Назавние поста')
     slug = models.SlugField(unique=True)
     content = models.TextField()
-    image = models.ImageField(upload_to='blog_posts/', blank=True, null=True)
+    image = models.ImageField(upload_to='', blank=True, null=True)
     pub_date = models.DateTimeField(auto_now=True)
     in_archive = models.BooleanField(default=False)
     objects = BlogPostManager()
