@@ -31,8 +31,7 @@ function CategoryDetail({ match }) {
                             <h4>{p.title}</h4>
                             <p>{p.content}</p>
                             <p>{p.id}</p>
-                            <p>image.url: {p.image}</p>
-                            <img src= {p.image} alt="image" width="250" height="250"/>
+                            <img src= {p.image} alt={p.title} class="img-fluid" />
                         </div>
                     <Link to={{ pathname: `/posts/${p.id}`, fromDashboard: false }}>
                         <div class="d-grid gap-2 col-6 mx-auto">
