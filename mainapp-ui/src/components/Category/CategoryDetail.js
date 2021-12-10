@@ -24,7 +24,7 @@ function CategoryDetail({ match }) {
             <hr />
             <div className="row justify-content-md-center">
                 {posts.map(p => (
-                    <div className="col-md-4" key={p.id}>
+                    <div className="row-md-4" key={p.id}>
                         <div className="d-grid gap-2 col-6 mx-auto">
                             <h4>{p.title}</h4>
                             <p>{p.content}</p>
