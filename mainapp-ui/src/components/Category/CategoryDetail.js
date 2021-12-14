@@ -30,6 +30,9 @@ function CategoryDetail({ match }) {
                             <p>{p.content}</p>
                             <p>{p.id}</p>
                             <img src= {p.image} alt={p.title} class="center" />
+                            <audio controls>
+                                <source src={p.audio} type="audio/mp3" />
+                            </audio>
                         </div>
                     <Link to={{ pathname: `/posts/${p.id}`, fromDashboard: false }}>
                         <div className="d-grid gap-2 col-6 mx-auto">

@@ -39,6 +39,7 @@ class BlogPost(models.Model):
     slug = models.SlugField(unique=True)
     content = models.TextField()
     image = models.ImageField(upload_to='images/', blank=True, null=True)
+    audio = models.FileField(upload_to='audio/', blank=True, null=True)
     pub_date = models.DateTimeField(auto_now=True)
     in_archive = models.BooleanField(default=False)
     objects = BlogPostManager()
