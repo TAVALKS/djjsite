@@ -11,6 +11,10 @@ class BlogCategory(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+
 
 class BlogPostQuerySet(models.QuerySet):
 
@@ -43,6 +47,10 @@ class BlogPost(models.Model):
     pub_date = models.DateTimeField(auto_now=True)
     in_archive = models.BooleanField(default=False)
     objects = BlogPostManager()
+
+    class Meta:
+        verbose_name = 'Публикация'
+        verbose_name_plural = 'Публикации'
 
 
     def __str__(self):

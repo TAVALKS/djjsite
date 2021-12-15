@@ -4,5 +4,10 @@ from django.contrib import admin
 from .models import BlogPost, BlogCategory
 
 
-admin.site.register(BlogPost)
+class BlogPostAdmin(admin.ModelAdmin):
+    ordering = ['title']
+    list_filter = ['blog_category']
+
+
 admin.site.register(BlogCategory)
+admin.site.register(BlogPost,  BlogPostAdmin)
