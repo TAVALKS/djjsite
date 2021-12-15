@@ -25,20 +25,26 @@ function CategoryDetail({ match }) {
             <div className="row justify-content-md-center">
                 {posts.map(p => (
                     <div className="row-md-4" key={p.id}>
-                        <div className="d-grid gap-2 col-6 mx-auto">
-                            <h4>{p.title}</h4>
-                            <p>{p.content}</p>
-                            <p>{p.id}</p>
-                            <img src= {p.image} alt={p.title} class="center" />
-                            <audio controls>
-                                <source src={p.audio} type="audio/mp3" />
-                            </audio>
+                        <div className="d-grid gap-1 col-6 mx-auto">
+                            <div className="row">
+                                <div className="col">
+                                    <h4>{p.title}</h4>
+                                    <p>{p.content}</p>
+                                    <audio controls>
+                                        <source src={p.audio} type="audio/mp3"/>
+                                    </audio>
+                                </div>
+                                <div className="col">
+                                    <img src= {p.image} class="center" />
+                                </div>
+                            </div>
                         </div>
                     <Link to={{ pathname: `/posts/${p.id}`, fromDashboard: false }}>
                         <div className="d-grid gap-2 col-6 mx-auto">
                             <button className="btn btn-primary" type="button">Детали</button>
                         </div>
                     </Link>
+                    <hr />
             </div>
                 ))}
         </div>
