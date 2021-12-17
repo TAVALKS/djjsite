@@ -1,13 +1,22 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-
+import displayAudio from '/home/al/djjsite/mainapp-ui/src/components/Category/displayAudio.js';
 
 function CategoryDetail({ match }) {
 
     const [category, setCategory] = useState({})
     const [posts, setPosts] = useState([])
     const id = match.params.id
+
+    const [displayShow, setDisplayShow] = useState("visually-hidden")
+
+    const audioRef = useRef();
+
+    const addNewPost = (p) => {
+        console.log(audioRef.current.value)
+        console.log(p.audio)
+    }
 
     useEffect(() => {
         axios({
@@ -30,7 +39,9 @@ function CategoryDetail({ match }) {
                                 <div className="col">
                                     <h4>{p.title}</h4>
                                     <p>{p.content}</p>
-                                    <audio controls>
+                                    <input ref = {audioRef} type="text"/>
+                                    <button onClick={addNewPost(p)}>Создать пост</button>
+                                    <audio controls className={displayShow}>
                                         <source src={p.audio} type="audio/mp3"/>
                                     </audio>
                                 </div>
