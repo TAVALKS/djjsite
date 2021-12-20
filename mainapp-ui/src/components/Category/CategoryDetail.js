@@ -9,14 +9,13 @@ function CategoryDetail({ match }) {
     const [posts, setPosts] = useState([])
     const id = match.params.id
 
-    const [displayShow, setDisplayShow] = useState("visually-hidden")
+    const [displayAudio, setDisplayAudio] = useState(false)
 
-    const audioRef = useRef();
-
-    const addNewPost = (p) => {
-        console.log(audioRef.current.value)
-        console.log(p.audio)
+    const hiddenTrue = p => {
+        setDisplayAudio(!displayAudio)
+        console.log(displayAudio)
     }
+
 
     useEffect(() => {
         axios({
@@ -39,10 +38,9 @@ function CategoryDetail({ match }) {
                                 <div className="col">
                                     <h4>{p.title}</h4>
                                     <p>{p.content}</p>
-                                    <input ref = {audioRef} type="text"/>
-                                    <button onClick={addNewPost(p)}>Создать пост</button>
-                                    <audio controls className={displayShow}>
-                                        <source src={p.audio} type="audio/mp3"/>
+                                        <button className="btn btn-primary" onClick={hiddenTrue} type="button">{String(displayAudio)}</button>
+                                    <audio controls onload={hiddenTrue} hidden={displayAudio}>
+                                        <source src={p.audio} type="audio/mp3" />
                                     </audio>
                                 </div>
                                 <div className="col">
