@@ -13,7 +13,6 @@ function CategoryDetail({ match }) {
 
     const hiddenTrue = p => {
         setDisplayAudio(!displayAudio)
-        console.log(displayAudio)
     }
 
 
@@ -39,9 +38,10 @@ function CategoryDetail({ match }) {
                                     <h4>{p.title}</h4>
                                     <p>{p.content}</p>
                                         <button className="btn btn-primary" onClick={hiddenTrue} type="button">{String(displayAudio)}</button>
-                                    <audio controls onload={hiddenTrue} hidden={displayAudio}>
+                                    {displayAudio &&
+                                    <audio controls>
                                         <source src={p.audio} type="audio/mp3" />
-                                    </audio>
+                                    </audio>}
                                 </div>
                                 <div className="col">
                                     <img src= {p.image} class="center" />
