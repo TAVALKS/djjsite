@@ -1,4 +1,5 @@
 from django.db import models
+from embed_video.fields import EmbedVideoField
 
 # Create your models here.
 
@@ -44,6 +45,7 @@ class BlogPost(models.Model):
     content = models.TextField()
     image = models.ImageField(upload_to='images/', blank=True, null=True)
     audio = models.FileField(upload_to='audio/', blank=True, null=True)
+    video = EmbedVideoField(null=True)
     pub_date = models.DateTimeField(auto_now=True)
     in_archive = models.BooleanField(default=False)
     objects = BlogPostManager()

@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-import displayAudio from '/home/al/djjsite/mainapp-ui/src/components/Category/displayAudio.js';
+
 
 function CategoryDetail({ match }) {
 
@@ -34,6 +34,7 @@ function CategoryDetail({ match }) {
                                     <audio controls>
                                         <source src={p.audio} type="audio/mp3" />
                                     </audio>}
+                                    {p.video != null && <iframe width="560" height="315" src={p.video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>}
                                 </div>
                                 <div className="col">
                                     <img src= {p.image} class="center" />
