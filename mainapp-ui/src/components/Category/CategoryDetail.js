@@ -9,13 +9,6 @@ function CategoryDetail({ match }) {
     const [posts, setPosts] = useState([])
     const id = match.params.id
 
-    const [displayAudio, setDisplayAudio] = useState(false)
-
-    const hiddenTrue = p => {
-        setDisplayAudio(!displayAudio)
-    }
-
-
     useEffect(() => {
         axios({
             method: "GET",
@@ -37,8 +30,7 @@ function CategoryDetail({ match }) {
                                 <div className="col">
                                     <h4>{p.title}</h4>
                                     <p>{p.content}</p>
-                                        <button className="btn btn-primary" onClick={hiddenTrue} type="button">{String(displayAudio)}</button>
-                                    {displayAudio &&
+                                    {p.audio != null &&
                                     <audio controls>
                                         <source src={p.audio} type="audio/mp3" />
                                     </audio>}
