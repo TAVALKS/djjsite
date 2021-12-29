@@ -31,8 +31,8 @@ function Navbar() {
                         {categories.map(c =>(
                             <Link className="nav-link" to={{pathname: `/category/${c.id}/`, fromDashboard: false}}>{c.name}</Link>
                         ))}
-                          <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Оформить</a>
+                          <li className="nav-item">
+                            <button className="btn btn-primary" type="button" aria-current="page" href="#">Оформить</button>
                         </li>
                     </ul>
                 </div>
