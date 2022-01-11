@@ -7,6 +7,7 @@ class BlogCategory(models.Model):
 
     name = models.CharField(max_length=255, verbose_name='Имя категории')
     slug = models.SlugField(unique = True)
+    priority = models.IntegerField(unique=True, null=True)
 
 
     def __str__(self):
@@ -45,7 +46,7 @@ class BlogPost(models.Model):
     content = models.TextField()
     image = models.ImageField(upload_to='images/', blank=True, null=True)
     audio = models.FileField(upload_to='audio/', blank=True, null=True)
-    video = EmbedVideoField(null=True)
+    video = EmbedVideoField(null=True, blank=True)
     pub_date = models.DateTimeField(auto_now=True)
     in_archive = models.BooleanField(default=False)
     objects = BlogPostManager()
