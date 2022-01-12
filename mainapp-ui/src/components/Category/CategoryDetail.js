@@ -25,9 +25,10 @@ function CategoryDetail({ match }) {
             <div className="row justify-content-md-center">
                 {posts.map(p => (
                     <div className="row-md-4" key={p.id}>
+                        {p.in_archive == false && 
                         <div className="d-grid gap-1 col-6 mx-auto">
                             <div className="row">
-                                <div className="col">
+                               <div className="col">
                                     <h4>{p.title}</h4>
                                     <p>{p.content}</p>
                                     {p.audio != null &&
@@ -40,14 +41,14 @@ function CategoryDetail({ match }) {
                                     <img src= {p.image} className="center" />
                                 </div>
                             </div>
-                        </div>
-                    <Link to={{ pathname: `/posts/${p.id}`, fromDashboard: false }}>
-                        <div className="d-grid gap-2 col-6 mx-auto">
-                            <button className="btn btn-primary" type="button">Детали</button>
-                        </div>
-                    </Link>
-                    <hr />
-            </div>
+                            <Link to={{ pathname: `/posts/${p.id}`, fromDashboard: false }}>
+                                <div className="d-grid gap-2 col-6 mx-auto">
+                                    <button className="btn btn-primary" type="button">Детали</button>
+                                </div>
+                                <hr />
+                            </Link>
+                        </div>}
+                </div>
                 ))}
         </div>
     </div>
