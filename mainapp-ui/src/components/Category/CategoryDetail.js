@@ -25,7 +25,7 @@ function CategoryDetail({ match }) {
             <div className="row justify-content-md-center">
                 {posts.map(p => (
                     <div className="row-md-4" key={p.id}>
-                        {p.in_archive == false && 
+                        {p.in_archive == false &&
                         <div className="d-grid gap-1 col-6 mx-auto">
                             <div className="row">
                                <div className="col">

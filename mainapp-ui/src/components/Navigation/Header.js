@@ -3,9 +3,13 @@ function Header() {
     return (
         <nav class="navbar navbar-light bg-light mx-auto">
             <div class="container-fluid mx-auto">
-                <a class="navbar-brand mx-auto" href="#">
-                Проектирование и внедрение голосовых роботов
-                </a>
+                    <h4 className="navbar-brand mx-auto" href="#" >
+                        Проектирование и внедрение голосовых роботов
+                    </h4>
+                    <h4 className="navbar-brand mx-auto" href="#" >
+                        9-9999-999-999
+                    </h4>
+                    <hr />
             </div>
         </nav>
   );

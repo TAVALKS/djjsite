@@ -4,7 +4,7 @@ import Navbar from './components/Navigation/Navbar';
 import CategoryDetail from './components/Category/CategoryDetail';
 import PostDetail from './components/Posts/PostDetail';
 import MainNavBar from './components/Mainmenu/Mainmenu';
-import Header from './components/Navigation/Header'
+import Header from './components/Navigation/Header';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 

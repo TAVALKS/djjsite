@@ -60,3 +60,18 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return f'{self.title} из категории "{self.blog_category.name}"'
+
+
+class ServiceInfo(models.Model):
+
+    head_title = models.CharField(max_length=75, verbose_name='Заголовок')
+    about_us =  models.CharField(max_length=75, verbose_name='О нас')
+    address = models.CharField(max_length=75, verbose_name='Наш адрес')
+    phone_number_for_conntact = models.CharField(max_length=75, verbose_name='Номера для связи')
+
+    class Meta:
+        verbose_name = 'Сервисная информация'
+        verbose_name_plural = 'Сервисные информации'
+
+    def __str__(self):
+        return f'{self.head_title}'
