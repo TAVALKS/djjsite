@@ -42,7 +42,7 @@ function Navbar() {
                             <Link className="nav-link" to={{pathname: `/category/${c.id}/`, fromDashboard: false}}>{c.name}</Link>
                         ))}
                           <li className="nav-item">
-                            <button className="btn btn-primary" type="button" aria-current="page" href="#">Оформить</button>
+                            <button className="btn btn-primary" type="button" aria-current="page" href="#">Заказать</button>
                         </li>
                     </ul>
                 </div>
