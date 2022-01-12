@@ -8,6 +8,7 @@ class BlogCategory(models.Model):
     name = models.CharField(max_length=255, verbose_name='Имя категории')
     slug = models.SlugField(unique = True)
     priority = models.IntegerField(unique=True, null=True, verbose_name='Приоритет для показа на фронте')
+    in_main_menu = models.BooleanField(default=False, verbose_name='Показать в гл. меню')
 
 
     def __str__(self):
