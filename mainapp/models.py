@@ -59,7 +59,7 @@ class BlogPost(models.Model):
 
 
     def __str__(self):
-        return f'{self.title} из категории "{self.blog_category.name}"'
+        return f'"{self.blog_category.name}" категория, публикация: {self.title}'
 
 
 class ServiceInfo(models.Model):
