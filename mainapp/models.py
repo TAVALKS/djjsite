@@ -45,7 +45,7 @@ class BlogPost(models.Model):
     blog_category = models.ForeignKey(BlogCategory, verbose_name='Имя категории', on_delete=models.CASCADE)
     title = models.CharField(max_length=255, verbose_name='Назавние поста')
     slug = models.SlugField(unique=True)
-    content = models.TextField()
+    content = models.TextField(blank=True)
     image = models.ImageField(upload_to='images/', blank=True, null=True)
     audio = models.FileField(upload_to='audio/', blank=True, null=True)
     video = EmbedVideoField(null=True, blank=True)
