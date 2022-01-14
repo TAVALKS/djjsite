@@ -42,7 +42,7 @@ function CategoryDetail({ match }) {
                                 </div>
                             </div>
                             <Link to={{ pathname: `/posts/${p.id}`, fromDashboard: false }}>
-                                <div className="d-grid gap-2 col-6 mx-auto">
+                                <div className="d-grid gap-2 col-12 mx-auto">
                                     <button className="btn btn-primary" type="button">Детали</button>
                                 </div>
                                 <hr />

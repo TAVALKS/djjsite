@@ -31,11 +31,13 @@ function Navbar() {
                             <button id="main-navbar" type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 Главная
                             </button>
+                            {categories.map(c =>(
                                 <ul class="dropdown-menu" aria-labelledby="main-navbar">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    {c.in_main_menu &&
+                                        <li><a class="dropdown-item" href="#">{c.name}</a></li>
+                                    }
                                 </ul>
+                            ))}
                         </div>
                         </li>
                         {categories.map(c =>(
