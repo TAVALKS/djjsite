@@ -1,5 +1,6 @@
 from django.db import models
 from embed_video.fields import EmbedVideoField
+from matplotlib.pyplot import title
 
 # Create your models here.
 
@@ -60,6 +61,21 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return f'{self.title} из категории "{self.blog_category.name}"'
+
+
+class BlogRecord(models.Model):
+    titleRecord = models.ForeignKey(BlogPost, verbose_name='Название записи', on_delete=models.CASCADE)
+    record_detail = models.CharField(max_length=255, verbose_name='Записи')
+    audio = models.FileField(upload_to='audio/', blank=True, null=True)
+    pub_date = models.DateTimeField(auto_now=True)
+    in_archive = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name = ' Запись в публикации'
+        verbose_name_plural = 'Записи в публикации'
+
+    def __str__(self):
+        return f'{self.titleRecord} из публикации "{self.titleRecord.title}"'
 
 
 class ServiceInfo(models.Model):
