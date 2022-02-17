@@ -44,7 +44,7 @@ class BlogPostManager(models.Manager):
 class BlogPost(models.Model):
 
     blog_category = models.ForeignKey(BlogCategory, verbose_name='Имя категории', on_delete=models.CASCADE)
-    title = models.CharField(max_length=255, verbose_name='Назавние поста')
+    title = models.CharField(max_length=255, verbose_name='Название поста')
     slug = models.SlugField(unique=True)
     content = models.TextField(blank=True)
     image = models.ImageField(upload_to='images/', blank=True, null=True)
