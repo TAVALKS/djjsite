@@ -25,7 +25,7 @@ class BlogCategoryDetailSerializer(serializers.ModelSerializer):
 
 class BlogPostDetailSerializer(serializers.ModelSerializer):
 
-    records = serializers.SerializerMethodField()
+    titleRecord = serializers.SerializerMethodField()
 
     class Meta:
         model = BlogPost
@@ -61,7 +61,7 @@ class BlogRecordSerializer(serializers.ModelSerializer):
 
 class BlogRecordListRetrieveSerializer(serializers.ModelSerializer):
 
-    titleRecord = BlogRecordSerializer()
+    titleRecord = BlogPostSerializer()
 
     class Meta:
         model = BlogRecord
