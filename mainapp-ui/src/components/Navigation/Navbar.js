@@ -28,21 +28,23 @@ function Navbar() {
                     <ul className="navbar-nav mx-auto">
                         <li className="nav-item">
                         <div class="dropdown">
-                            <button id="main-navbar" type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                Главная
+                            <button id="main-navbar-primary" type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Заказать
                             </button>
+                            {categories.map(c =>(
                                 <ul class="dropdown-menu" aria-labelledby="main-navbar">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    {c.in_main_menu &&
+                                        <li><a class="dropdown-item" href="#">{c.name}</a></li>
+                                    }
                                 </ul>
+                            ))}
                         </div>
                         </li>
                         {categories.map(c =>(
                             <Link className="nav-link" to={{pathname: `/category/${c.id}/`, fromDashboard: false}}>{c.name}</Link>
                         ))}
-                          <li className="nav-item">
-                            <button className="btn btn-primary" type="button" aria-current="page" href="#">Оформить</button>
+                        <li className="nav-item">
+                            <button className="btn btn-primary" type="button" aria-current="page" href="#">Связатьс с нами</button>
                         </li>
                     </ul>
                 </div>

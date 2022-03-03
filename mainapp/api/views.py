@@ -4,9 +4,11 @@ from .serializers import (
     BlogCategorySerializer,
     BlogPostSerializer,
     BlogPostListRetrieveSerializer,
-    BlogCategoryDetailSerializer
+    BlogCategoryDetailSerializer,
+    BlogRecordSerializer,
+    BlogRecordListRetrieveSerializer
 )
-from ..models import BlogCategory, BlogPost
+from ..models import BlogCategory, BlogPost, BlogRecord
 
 
 class BlogCategoryViewSet(viewsets.ModelViewSet):
@@ -33,6 +35,23 @@ class BlogPostViewSet(viewsets.ModelViewSet):
     action_to_serializer = {
         'list': BlogPostListRetrieveSerializer,
         'retrieve': BlogPostListRetrieveSerializer
+    }
+
+    def get_serializer_class(self):
+        return self.action_to_serializer.get(
+            self.action,
+            self.serializer_class
+        )
+
+
+class BlogRecordViewSet(viewsets.ModelViewSet):
+
+    queryset = BlogRecord.objects.all()
+    serializer_class = BlogRecordSerializer
+
+    action_to_serializer = {
+        'list': BlogRecordListRetrieveSerializer,
+        'retrieve': BlogRecordListRetrieveSerializer
     }
 
     def get_serializer_class(self):

@@ -1,5 +1,6 @@
 from django.db import models
 from embed_video.fields import EmbedVideoField
+from matplotlib.pyplot import title
 
 # Create your models here.
 
@@ -43,9 +44,9 @@ class BlogPostManager(models.Manager):
 class BlogPost(models.Model):
 
     blog_category = models.ForeignKey(BlogCategory, verbose_name='Имя категории', on_delete=models.CASCADE)
-    title = models.CharField(max_length=255, verbose_name='Назавние поста')
+    title = models.CharField(max_length=255, verbose_name='Название поста')
     slug = models.SlugField(unique=True)
-    content = models.TextField()
+    content = models.TextField(blank=True)
     image = models.ImageField(upload_to='images/', blank=True, null=True)
     audio = models.FileField(upload_to='audio/', blank=True, null=True)
     video = EmbedVideoField(null=True, blank=True)
@@ -60,3 +61,33 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return f'{self.title} из категории "{self.blog_category.name}"'
+
+
+class BlogRecord(models.Model):
+    titleRecord = models.ForeignKey(BlogPost, verbose_name='Название записи', on_delete=models.CASCADE)
+    record_detail = models.CharField(max_length=255, verbose_name='Записи')
+    audio = models.FileField(upload_to='audio/', blank=True, null=True)
+    pub_date = models.DateTimeField(auto_now=True)
+    in_archive = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name = ' Запись в публикации'
+        verbose_name_plural = 'Записи в публикации'
+
+    def __str__(self):
+        return f'{self.titleRecord} из публикации "{self.titleRecord.title}"'
+
+
+class ServiceInfo(models.Model):
+
+    head_title = models.CharField(max_length=75, verbose_name='Заголовок')
+    about_us =  models.CharField(max_length=75, verbose_name='О нас')
+    address = models.CharField(max_length=75, verbose_name='Наш адрес')
+    phone_number_for_conntact = models.CharField(max_length=75, verbose_name='Номера для связи')
+
+    class Meta:
+        verbose_name = 'Сервисная информация'
+        verbose_name_plural = 'Сервисные информации'
+
+    def __str__(self):
+        return f'{self.head_title}'

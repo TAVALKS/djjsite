@@ -12,3 +12,7 @@ def category_detail(request, id):
 
 def post_detail(request, id):
     return render(request, 'index.html', {})
+
+
+def record_detail(request, id):
+    return render(request, 'index.html', {})
