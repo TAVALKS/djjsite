@@ -4,22 +4,22 @@ import axios from 'axios';
 
 function PostDetail({ match }) {
 
-    const [post, setPost] = useState({})
+    const [record, setRecord] = useState({})
     const id = match.params.id
 
     useEffect(() =>{
         axios({
             method: "GET",
-            url: `http://127.0.0.1:8080/api/blogpost/${id}/`
+            url: `http://127.0.0.1:8080/api/record/${id}/`
         }).then(response =>{
-            setPost(response.data)
+            setRecord(response.data)
         })
     }, [id])
 
     return (
         <div>
-            Post with id {post.id}
-            <p>Title <strong>{post.title}</strong></p>
+            Post with id {record.id}
+            <p>Title <strong>{record.title}</strong></p>
         </div>
     )
 }

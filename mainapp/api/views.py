@@ -6,7 +6,8 @@ from .serializers import (
     BlogPostListRetrieveSerializer,
     BlogCategoryDetailSerializer,
     BlogRecordSerializer,
-    BlogRecordListRetrieveSerializer
+    BlogRecordListRetrieveSerializer,
+    BlogPostDetailSerializer
 )
 from ..models import BlogCategory, BlogPost, BlogRecord
 
@@ -34,7 +35,7 @@ class BlogPostViewSet(viewsets.ModelViewSet):
 
     action_to_serializer = {
         'list': BlogPostListRetrieveSerializer,
-        'retrieve': BlogPostListRetrieveSerializer
+        'retrieve': BlogPostDetailSerializer
     }
 
     def get_serializer_class(self):

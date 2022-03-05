@@ -32,8 +32,8 @@ class BlogPostDetailSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     @staticmethod
-    def get_records(obj):
-        return BlogRecordSerializer(BlogRecord.objects.filter(titleRecord=obj), many = True).data
+    def get_titleRecord(obj):
+        return BlogRecordSerializer(BlogRecord.objects.filter(titleRecord=obj), many=True).data
 
 
 class BlogPostSerializer(serializers.ModelSerializer):
