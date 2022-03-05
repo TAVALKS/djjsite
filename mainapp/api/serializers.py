@@ -25,22 +25,28 @@ class BlogCategoryDetailSerializer(serializers.ModelSerializer):
 
 class BlogPostDetailSerializer(serializers.ModelSerializer):
 
-    titleRecord = serializers.SerializerMethodField()
+    post_name = serializers.SerializerMethodField()
 
     class Meta:
         model = BlogPost
         fields = '__all__'
 
     @staticmethod
-    def get_titleRecord(obj):
-        return BlogRecordSerializer(BlogRecord.objects.filter(titleRecord=obj), many=True).data
+    def get_post_name(obj):
+        return BlogRecordSerializer(BlogRecord.objects.filter(post_name=obj), many=True).data
 
 
 class BlogPostSerializer(serializers.ModelSerializer):
 
+    records = serializers.SerializerMethodField()
+
     class Meta:
         model = BlogPost
         fields = '__all__'
+
+    @staticmethod
+    def get_records(obj):
+        return BlogRecordSerializer(BlogRecord.objects.filter(post_name=obj), many=True).data
 
 
 class BlogPostListRetrieveSerializer(serializers.ModelSerializer):
@@ -61,7 +67,7 @@ class BlogRecordSerializer(serializers.ModelSerializer):
 
 class BlogRecordListRetrieveSerializer(serializers.ModelSerializer):
 
-    titleRecord = BlogPostSerializer()
+    post_name = BlogPostSerializer()
 
     class Meta:
         model = BlogRecord

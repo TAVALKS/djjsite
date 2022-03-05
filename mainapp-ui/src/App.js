@@ -16,7 +16,7 @@ function App() {
         <Header />
         <Navbar />
         <Switch>
-          <Route path="/record/:id/" exact component={PostDetail} />
+          <Route path="/posts/:id/" exact component={PostDetail} />
           <Route path="/category/:id/" exact component={CategoryDetail} />
         </Switch>
       </Router>
