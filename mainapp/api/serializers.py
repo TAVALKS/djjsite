@@ -25,14 +25,14 @@ class BlogCategoryDetailSerializer(serializers.ModelSerializer):
 
 class BlogPostDetailSerializer(serializers.ModelSerializer):
 
-    post_name = serializers.SerializerMethodField()
+    records = serializers.SerializerMethodField()
 
     class Meta:
         model = BlogPost
         fields = '__all__'
 
     @staticmethod
-    def get_post_name(obj):
+    def get_records(obj):
         return BlogRecordSerializer(BlogRecord.objects.filter(post_name=obj), many=True).data
 
 
