@@ -64,7 +64,8 @@ class BlogPost(models.Model):
 
 
 class BlogRecord(models.Model):
-    titleRecord = models.ForeignKey(BlogPost, verbose_name='Название записи', on_delete=models.CASCADE)
+    post_name = models.ForeignKey(BlogPost, verbose_name='Имя поста', on_delete=models.CASCADE)
+    title = models.CharField(max_length=255, verbose_name='Название записи', default='Новая запись')
     record_detail = models.CharField(max_length=255, verbose_name='Записи')
     audio = models.FileField(upload_to='audio/', blank=True, null=True)
     pub_date = models.DateTimeField(auto_now=True)
@@ -75,7 +76,7 @@ class BlogRecord(models.Model):
         verbose_name_plural = 'Записи в публикации'
 
     def __str__(self):
-        return f'{self.titleRecord} из публикации "{self.titleRecord.title}"'
+        return f'{self.post_name} из публикации "{self.post_name.title}"'
 
 
 class ServiceInfo(models.Model):

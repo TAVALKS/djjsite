@@ -4,6 +4,7 @@ import Navbar from './components/Navigation/Navbar';
 import CategoryDetail from './components/Category/CategoryDetail';
 import PostDetail from './components/Posts/PostDetail';
 import MainNavBar from './components/Mainmenu/Mainmenu';
+import RecordDetail from './components/Records/RecordDetail';
 import Header from './components/Navigation/Header';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
@@ -16,6 +17,7 @@ function App() {
         <Header />
         <Navbar />
         <Switch>
+          <Route path="/records/:id/" exact component={RecordDetail} />
           <Route path="/posts/:id/" exact component={PostDetail} />
           <Route path="/category/:id/" exact component={CategoryDetail} />
         </Switch>
